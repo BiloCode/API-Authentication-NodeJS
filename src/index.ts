@@ -1,13 +1,10 @@
-import express from 'express';
 import env from './config';
-import loaders from './loaders';
+import Initialization from './app';
 
 (async () => {
-  const application = express();
-  await loaders(application);
+  const application = await Initialization();
 
   application.listen(env.port, () => {
     console.log(`Server on port : ${env.port}`);
   });
-
 })();

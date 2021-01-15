@@ -11,14 +11,15 @@ class PasswordCompare {
 
   public async __invoke(){
     try {
-      const password_exists = await bcrypt.compare(
+      const match = await bcrypt.compare(
         this.password,
         this.password_hashed
       );
 
-      return password_exists;
+      return match;
     } catch (error) {
       console.log(error);
+      return false;
     }
   }
 
