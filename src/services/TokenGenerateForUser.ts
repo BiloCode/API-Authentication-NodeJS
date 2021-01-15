@@ -17,6 +17,7 @@ class TokenGenerateForUser {
       return 'Bearer ' + token;
     } catch (error) {
       console.log(error);
+      return null;
     }
   }
 

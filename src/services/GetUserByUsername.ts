@@ -15,6 +15,7 @@ class GetUserByUsername {
       return model;
     } catch (error) {
       console.log(error);
+      return null;
     }
   }
 

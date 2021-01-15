@@ -1,10 +1,10 @@
 import { Router } from "express";
 
-import userChangePassword from "../controllers/userChangePassword";
+import userPasswordChange from "../controllers/userPasswordChange";
 import isUserAuthenticated from "../middlewares/isUserAuthenticated";
 
 export default (app : Router) => {
   
-  app.put('/user/:id/password-change', isUserAuthenticated , userChangePassword);
+  app.put('/user/:id/password-change', isUserAuthenticated , userPasswordChange);
 
 }
