@@ -1,7 +1,7 @@
-import { Application } from "express";
+import { Router } from "express";
 
 import getCountries from "../controllers/getCountries";
 
-export default (app : Application) => {
+export default (app : Router) => {
   app.get('/countries', getCountries);
 }
