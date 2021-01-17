@@ -1,7 +1,7 @@
 import jsonwebtoken from 'jsonwebtoken'
 import TUserTokenPayload from '../types/TUserTokenPayload';
 
-class TokenGenerateForUser {
+class TokenGenerate {
   private secret_key : string;
 
   constructor(secret_key : string){
@@ -23,4 +23,4 @@ class TokenGenerateForUser {
 
 }
 
-export default TokenGenerateForUser;
+export default TokenGenerate;

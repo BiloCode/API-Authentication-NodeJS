@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 
 import env from "../../../config";
 
-import TokenGenerateForUser from '../../../services/TokenGenerateForUser';
+import TokenGenerate from '../../../services/TokenGenerate';
 import UserModel from "../../../models/UserModel";
 import GetUserByUsername from "../../../services/GetUserByUsername";
 import PasswordCompare from "../../../services/PasswordCompare";
@@ -23,7 +23,7 @@ export default async (req : Request, res : Response) => {
     if(!is_correct)
       return res.status(200).json({ message : 'Authentication invalid' });
 
-    const createToken = new TokenGenerateForUser(env.token_secret_key);
+    const createToken = new TokenGenerate(env.token_secret_key);
     const jwt_token = createToken.__invoke({
       id : user._id,
       type : 'user'

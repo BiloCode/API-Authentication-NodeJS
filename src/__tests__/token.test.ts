@@ -1,15 +1,15 @@
 import { expect , describe , it } from '@jest/globals';
 import env from '../config';
 import TokenCheck from '../services/TokenCheck';
-import TokenGenerateForUser from '../services/TokenGenerateForUser';
+import TokenGenerate from '../services/TokenGenerate';
 
 describe('Token Tests', () => {
   const private_key = env.token_secret_key;
 
   it('Create token' , () => {
-    const generateToken = new TokenGenerateForUser(private_key);
+    const generateToken = new TokenGenerate(private_key);
     const token = generateToken.__invoke({
-      id : 1,
+      id : 'asd5qwe6qw1e34312643q2d',
       type : 'user'
     });
 

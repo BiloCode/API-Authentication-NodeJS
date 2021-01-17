@@ -7,7 +7,7 @@ import checkUserAuthenticated from "../middlewares/checkUserAuthenticated";
 
 export default (app : Router) => {
 
-  app.get('/auth/valid', checkUserAuthenticated, authenticationCheck);
+  app.get('/auth', checkUserAuthenticated, authenticationCheck);
   app.post('/auth', bodyCheckAuthentication, authentication);
 
 }
