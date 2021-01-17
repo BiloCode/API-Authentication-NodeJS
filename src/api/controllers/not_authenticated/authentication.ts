@@ -1,10 +1,11 @@
 import { Request, Response } from "express";
 
-import env from "../../config";
-import TokenGenerateForUser from '../../services/TokenGenerateForUser';
-import UserModel from "../../models/UserModel";
-import GetUserByUsername from "../../services/GetUserByUsername";
-import PasswordCompare from "../../services/PasswordCompare";
+import env from "../../../config";
+
+import TokenGenerateForUser from '../../../services/TokenGenerateForUser';
+import UserModel from "../../../models/UserModel";
+import GetUserByUsername from "../../../services/GetUserByUsername";
+import PasswordCompare from "../../../services/PasswordCompare";
 
 export default async (req : Request, res : Response) => {
   try {
@@ -14,11 +15,11 @@ export default async (req : Request, res : Response) => {
     const user = await getUser.__invoke(username);
 
     if(!user)
-      return res.status(500).json({ message : 'Server error' });
+      return res.status(500).json({ message : 'User not found' });
 
     const passwordCompare = new PasswordCompare(password, user.password);
     const is_correct = await passwordCompare.__invoke();
-
+    
     if(!is_correct)
       return res.status(200).json({ message : 'Authentication invalid' });
 

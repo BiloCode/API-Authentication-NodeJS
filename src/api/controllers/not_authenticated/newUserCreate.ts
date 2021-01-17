@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
 
-import UserModel from "../../models/UserModel";
-import PasswordEncrypt from "../../services/PasswordEncrypt";
-import UserCreate from "../../services/UserCreate";
+import UserModel from "../../../models/UserModel";
+import PasswordEncrypt from "../../../services/PasswordEncrypt";
+import UserCreate from "../../../services/UserCreate";
 
 export default async (req : Request, res : Response) => {
   try {
@@ -10,7 +10,6 @@ export default async (req : Request, res : Response) => {
 
     const encryptPassword = new PasswordEncrypt(password);
     const password_hashed = await encryptPassword.__invoke();
-
     if(!password_hashed)
       return res.status(500).json({ message : 'Password not hashed' });
 

@@ -5,7 +5,7 @@ class PasswordEncrypt {
   private password : string;
 
   constructor(password : string){
-    this.salt = 10;
+    this.salt = 12;
     this.password = password;
   }
 

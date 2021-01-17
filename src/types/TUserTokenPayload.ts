@@ -1,5 +1,5 @@
 type TUserTokenPayload = {
-  id : number,
+  id : string,
   type : 'user' | 'admin'
 }
 
